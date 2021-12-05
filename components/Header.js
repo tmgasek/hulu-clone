@@ -21,13 +21,15 @@ function Header() {
         <HeaderItem title="ACCOUNT" Icon={UserIcon} />
       </div>
 
-      <Image
-        className="object-contain"
-        src="/Hulu_Logo.svg"
-        alt=""
-        height={75}
-        width={150}
-      />
+      <div>
+        <Image
+          className="object-contain"
+          src="/Hulu_Logo.svg"
+          alt=""
+          height={50}
+          width={100}
+        />
+      </div>
     </header>
   );
 }

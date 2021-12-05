@@ -1,6 +1,8 @@
 import requests from '../utils/requests';
 import { useRouter } from 'next/router';
 
+//TODO: change key to title and make it work - string work? atm its genre=fetchAction, not good
+
 function Navbar() {
   const router = useRouter();
 
@@ -10,7 +12,7 @@ function Navbar() {
         {Object.entries(requests).map(([key, { title, url }]) => (
           <h2
             className="last:pr-24 cursor-pointer transition duration-100 transform hover:scale-125 hover:test-white active:text-red-500"
-            onClick={() => router.push(`/?genre=${key}`)}
+            onClick={() => router.push(`/?genre=${key}&page=1`)}
             key={key}
           >
             {title}
