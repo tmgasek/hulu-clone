@@ -6,13 +6,17 @@ import NextPage from './NextPage';
 //TODO: validate max page !
 
 function Results({ data }) {
+  const router = useRouter();
+
   if (!data) return <div></div>;
 
   return (
     <div>
       <FlipMove className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap items-center justify-center">
         {data.results.map((item) => (
-          <Thumbnail key={item.id} item={item} />
+          <div key={item.id} onClick={() => console.log('clicked')}>
+            <Thumbnail item={item} />
+          </div>
         ))}
       </FlipMove>
       <NextPage />
