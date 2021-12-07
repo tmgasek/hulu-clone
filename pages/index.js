@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import Results from '../components/Results';
 import requests from '../utils/requests';
+import { useRouter } from 'next/router';
 
 export default function Home({ data }) {
   return (
@@ -24,7 +25,6 @@ export default function Home({ data }) {
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
   const page = context.query.page;
-  console.log(page);
 
   const req = await fetch(
     `https://api.themoviedb.org/3${

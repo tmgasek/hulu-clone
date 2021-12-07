@@ -1,0 +1,59 @@
+import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
+import { useState } from 'react';
+import Results from '../../components/Results';
+import { useRouter } from 'next/router';
+import { searchQuery } from '../../utils/requests';
+
+export default function SearchPage({ data }) {
+  console.log(data);
+  const [term, setTerm] = useState('');
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search?term=${term}`);
+    setTerm('');
+  };
+
+  return (
+    <div>
+      <Header />
+      <div>
+        <form onSubmit={handleSubmit} className="text-gray-900">
+          <input
+            type="text"
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            placeholder="Search movies / shows"
+          />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+      <Results data={data} />
+    </div>
+  );
+}
+
+export async function getServerSideProps(context) {
+  const query = context.query.term;
+  const page = context.query.page;
+
+  if (!query) {
+    return {
+      props: {
+        data: null,
+      },
+    };
+  }
+
+  const req = await fetch(`${searchQuery}&query=${query}&page=${page || 1}`);
+
+  const data = await req.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+}

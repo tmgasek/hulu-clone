@@ -6,14 +6,26 @@ import { useRouter } from 'next/router';
 
 function Results({ data }) {
   const router = useRouter();
+  console.log(router);
 
   const currentPage = router.query.page;
   const currentGenre = router.query.genre;
   const currPath = router.asPath;
 
   const goToPage = (page) => {
-    router.push(`/?genre=${currentGenre}&page=${page}`);
+    console.log(currPath);
+    if (router.pathname === '/' && currentGenre) {
+      router.push(`/?genre=${currentGenre}&page=${page}`);
+    } else if (router.pathname === '/') {
+      router.push(`/?genre=${'fetchTopRated'}&page=${2}`);
+    } else if (router.pathname === '/search' && !currentPage) {
+      router.push(`${router.asPath}&page=${2}`);
+    } else if (router.pathname === '/search' && currentPage) {
+      router.push(`${router.pathname}?term=${router.query.term}&page=${page}`);
+    }
   };
+
+  if (!data) return <div></div>;
 
   return (
     <div>

@@ -1,5 +1,7 @@
 const API_KEY = process.env.API_KEY;
 
+const BASE_URL = 'https://api.themoviedb.org/3';
+
 export default {
   fetchTrending: {
     title: 'Trending',
@@ -46,3 +48,5 @@ export default {
     url: `/discover/movie?api_key=${API_KEY}&with_genres=10770&language=en`,
   },
 };
+
+export const searchQuery = `${BASE_URL}/search/multi?api_key=${API_KEY}`;
