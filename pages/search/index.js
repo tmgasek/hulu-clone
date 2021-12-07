@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import { searchQuery } from '../../utils/requests';
 
 export default function SearchPage({ data }) {
-  console.log(data);
   const [term, setTerm] = useState('');
   const router = useRouter();
 
@@ -19,15 +18,20 @@ export default function SearchPage({ data }) {
   return (
     <div>
       <Header />
-      <div>
-        <form onSubmit={handleSubmit} className="text-gray-900">
+      <div className="m-5 p-5 group">
+        <form onSubmit={handleSubmit} className="flex justify-center gap-3 ">
           <input
+            className="p-2 px-4 rounded-3xl text-black"
             type="text"
             value={term}
             onChange={(e) => setTerm(e.target.value)}
             placeholder="Search movies / shows"
           />
-          <input type="submit" value="Submit" />
+          <input
+            className="font-semibold rounded-full px-4 bg-transparent border-2 cursor-pointer group-hover:animate-bounce"
+            type="submit"
+            value="Submit"
+          />
         </form>
       </div>
       <Results data={data} />
