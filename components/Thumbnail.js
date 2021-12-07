@@ -25,8 +25,7 @@ const Thumbnail = forwardRef(({ item }, ref) => {
           {item.title || item.original_name}
         </h2>
         <p className="flex items-center opacity-0 group-hover:opacity-100">
-          {item.media_type && `${item.media_type} *`}{' '}
-          {item.release_date || item.first_air_date} {'* '}
+          {item.release_date || item.first_air_date}
           <ThumbUpIcon className="h-5 mx-2" />
           {item.vote_count}
         </p>
