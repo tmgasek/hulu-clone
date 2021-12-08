@@ -1,5 +1,4 @@
 import Header from '../../components/Header';
-import Navbar from '../../components/Navbar';
 import { useState } from 'react';
 import Results from '../../components/Results';
 import { useRouter } from 'next/router';

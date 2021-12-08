@@ -14,7 +14,11 @@ function Results({ data }) {
     <div>
       <FlipMove className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap items-center justify-center">
         {data.results.map((item) => (
-          <div key={item.id} onClick={() => console.log('clicked')}>
+          <div
+            key={item.id}
+            //could create a Link tag here if concerned with SEO
+            onClick={() => router.push(`/movie?id=${item.id}`)}
+          >
             <Thumbnail item={item} />
           </div>
         ))}

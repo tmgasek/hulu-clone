@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import { ThumbUpIcon } from '@heroicons/react/outline';
 import { forwardRef } from 'react';
+import { useRouter } from 'next/router';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/original';
+
+//http://localhost:3000/movie?id=576845
 
 const Thumbnail = forwardRef(({ item }, ref) => {
   return (

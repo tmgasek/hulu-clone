@@ -50,3 +50,5 @@ export default {
 };
 
 export const searchQuery = `${BASE_URL}/search/multi?api_key=${API_KEY}`;
+export const movieQuery = (movieId) =>
+  `${BASE_URL}/movie/${movieId}/?api_key=${API_KEY}`;
