@@ -3,17 +3,17 @@ import { useRouter } from 'next/router';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
-export default function MoviePage({ movie }) {
+export default function TvPage({ tv }) {
   const router = useRouter();
 
-  console.log(movie);
+  console.log(tv);
 
   //from-[#06202A]
   return (
     <div className="relative">
       <div className="z-10 w-full h-screen absolute top-0 bg-gradient-to-t from-black  ">
         <img
-          src={`${BASE_URL}${movie.backdrop_path || movie.poster_path}`}
+          src={`${BASE_URL}${tv.backdrop_path || tv.poster_path}`}
           className="object-cover w-full h-full opacity-20 "
         />
 
@@ -25,8 +25,8 @@ export default function MoviePage({ movie }) {
             back
           </button>
           <div className="flex flex-wrap">
-            {movie.production_companies &&
-              movie.production_companies.map((c) => (
+            {tv.production_companies &&
+              tv.production_companies.map((c) => (
                 <div key={c.id} className="mx-1 md:mx-4">
                   <Image
                     src={`${BASE_URL}/${c.logo_path}`}
@@ -36,16 +36,28 @@ export default function MoviePage({ movie }) {
                 </div>
               ))}
           </div>
-          <h1 className="text-3xl md:text-4xl mt-20 font-semibold uppercase tracking-wider">
-            {movie.title}
-          </h1>
-          <p className="italic opacity-70">{movie.tagline}</p>
-          <p className="md:text-lg mt-10 max-w-lg">{movie.overview}</p>
-          <div className="mt-4">
-            {movie.genres &&
-              movie.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
+          <div className="flex flex-wrap">
+            {tv.created_by &&
+              tv.created_by.map((c) => (
+                <div key={c.id} className="mx-1 md:mx-4">
+                  <p>{c.name}</p>
+                </div>
+              ))}
           </div>
-          <p className="mt-4">{movie.runtime} minutes</p>
+          <h1 className="text-3xl md:text-4xl mt-20 font-semibold uppercase tracking-wider">
+            {tv.name}
+          </h1>
+          <p className="italic opacity-70">{tv.tagline}</p>
+          <p className="md:text-lg mt-10 max-w-lg">{tv.overview}</p>
+          <div className="mt-4">
+            {tv.genres &&
+              tv.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
+          </div>
+          {tv.in_production && <p className="mt-4">In production</p>}
+          <p className="mt-4">{tv.episode_run_time} minute long episodes</p>
+          <p>
+            {tv.vote_average} / 10 ({tv.vote_count} ratings)
+          </p>
         </div>
       </div>
       {/* <div className=" h-20 bg-gradient-to-b from-black opacity-95">hi</div> */}
@@ -65,14 +77,14 @@ export async function getServerSideProps(context) {
   }
 
   const req = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=97d56c37e52fb9c99062b6c069ea06b5&`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=97d56c37e52fb9c99062b6c069ea06b5&`
   );
 
   const data = await req.json();
 
   return {
     props: {
-      movie: data,
+      tv: data,
     },
   };
 }

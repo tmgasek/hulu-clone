@@ -41,7 +41,7 @@ export default {
   },
   animation: {
     title: 'Animation',
-    url: `/discover/movie?api_key=${API_KEY}&with_genres=18&language=en`,
+    url: `/discover/movie?api_key=${API_KEY}&with_genres=16&language=en`,
   },
   tv: {
     title: 'TV',

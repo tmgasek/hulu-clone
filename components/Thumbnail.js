@@ -8,6 +8,16 @@ const BASE_URL = 'https://image.tmdb.org/t/p/original';
 //http://localhost:3000/movie?id=576845
 
 const Thumbnail = forwardRef(({ item }, ref) => {
+  const getImgSrc = (item) => {
+    if (item.backdrop_path) {
+      return `${BASE_URL}${item.backdrop_path}`;
+    }
+    if (item.poster_path) {
+      return `${BASE_URL}${item.poster_path}`;
+    }
+    return `/img404.jpg`;
+  };
+
   return (
     <div
       ref={ref}
@@ -17,15 +27,13 @@ const Thumbnail = forwardRef(({ item }, ref) => {
         layout="responsive"
         height={1080}
         width={1920}
-        src={
-          `${BASE_URL}${item.backdrop_path || item.poster_path}` ||
-          `${BASE_URL}${item.poster_path}`
-        }
+        src={getImgSrc(item)}
       />
+      {/* <Image height={100} width={100} src="/movie-icon-png-2.jpg" /> */}
       <div className="p-2">
         <p className="truncate max-w-md">{item.overview}</p>
         <h2 className="truncate max-w-md mt-1 text-2xl text-white transition-all duration-75 ease-in group-hover:font-bold">
-          {item.title || item.original_name}
+          {item.title || item.name}
         </h2>
         <p className="flex items-center opacity-0 group-hover:opacity-100">
           {item.release_date || item.first_air_date}

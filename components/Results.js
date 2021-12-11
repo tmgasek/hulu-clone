@@ -1,12 +1,18 @@
 import Thumbnail from './Thumbnail';
 import FlipMove from 'react-flip-move';
 import { useRouter } from 'next/router';
-import NextPage from './NextPage';
-
-//TODO: validate max page !
+import Pagination from './Pagination';
 
 function Results({ data }) {
   const router = useRouter();
+
+  const pushBasedOnMediaType = (item) => {
+    if (item.media_type === 'tv') {
+      router.push(`/tv?id=${item.id}`);
+    } else {
+      router.push(`/movie?id=${item.id}`);
+    }
+  };
 
   if (!data) return <div></div>;
 
@@ -17,13 +23,13 @@ function Results({ data }) {
           <div
             key={item.id}
             //could create a Link tag here if concerned with SEO
-            onClick={() => router.push(`/movie?id=${item.id}`)}
+            onClick={() => pushBasedOnMediaType(item)}
           >
             <Thumbnail item={item} />
           </div>
         ))}
       </FlipMove>
-      <NextPage />
+      <Pagination max={data.total_pages} />
     </div>
   );
 }

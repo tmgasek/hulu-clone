@@ -17,7 +17,7 @@ export default function SearchPage({ data }) {
   return (
     <div>
       <Header />
-      <div className="m-5 p-5 group">
+      <div className="">
         <form onSubmit={handleSubmit} className="flex justify-center gap-3 ">
           <input
             className="p-2 px-4 rounded-3xl text-black"
@@ -27,7 +27,7 @@ export default function SearchPage({ data }) {
             placeholder="Search movies / shows"
           />
           <input
-            className="font-semibold rounded-full px-4 bg-transparent border-2 cursor-pointer group-hover:animate-bounce"
+            className="font-semibold rounded-full px-4 bg-transparent border-2 cursor-pointer "
             type="submit"
             value="Submit"
           />
