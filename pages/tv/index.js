@@ -27,12 +27,8 @@ export default function TvPage({ tv }) {
           <div className="flex flex-wrap">
             {tv.production_companies &&
               tv.production_companies.map((c) => (
-                <div key={c.id} className="mx-1 md:mx-4">
-                  <Image
-                    src={`${BASE_URL}/${c.logo_path}`}
-                    width={100}
-                    height={20}
-                  />
+                <div key={c.id} className="mx-1 md:mx-4 w-12 h-12">
+                  {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
                 </div>
               ))}
           </div>

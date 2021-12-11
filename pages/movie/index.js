@@ -27,12 +27,8 @@ export default function MoviePage({ movie }) {
           <div className="flex flex-wrap">
             {movie.production_companies &&
               movie.production_companies.map((c) => (
-                <div key={c.id} className="mx-1 md:mx-4">
-                  <Image
-                    src={`${BASE_URL}/${c.logo_path}`}
-                    width={100}
-                    height={20}
-                  />
+                <div key={c.id} className="mx-1 md:mx-4 w-12 h-12">
+                  {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
                 </div>
               ))}
           </div>
@@ -45,7 +41,9 @@ export default function MoviePage({ movie }) {
             {movie.genres &&
               movie.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
           </div>
-          <p className="mt-4">{movie.runtime} minutes</p>
+          {movie.runtime != 0 && (
+            <p className="mt-4">{movie.runtime} minutes</p>
+          )}
         </div>
       </div>
       {/* <div className=" h-20 bg-gradient-to-b from-black opacity-95">hi</div> */}
