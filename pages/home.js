@@ -52,20 +52,20 @@ function HomePage() {
           </div>
         </div>
       </header>
+
       <section className="bg-black py-20">
         <div className="flex flex-col justify-center items-center gap-3">
           <p className="uppercase py-2 font-bold tracking-widest text-sm text-hulu">
             included in all plans
           </p>
-          <h2 className="text-7xl font-black tracking-wider mb-4">
+          <h2 className="text-3xl md:text-7xl font-black mb-4">
             All The TV You Love
           </h2>
-          <p className="text-2xl max-w-4xl text-center">
+          <p className="text-xl m-1 md:text-2xl max-w-4xl text-center">
             Stream full seasons of exclusive series, current-season episodes,
             hit movies, Hulu Originals, kids shows, and more.
           </p>
         </div>
-
         <div className="flex flex-wrap gap-6 justify-center pt-8">
           <div className="relative">
             <img src="/cover-1.jpg" className="h-72 md:h-[450px]" />
@@ -97,6 +97,29 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className=" bg-[#151516] py-10 md:py-20 text-center">
+        <div className="flex flex-col gap-5 justify-center items-center m-2">
+          <p className="uppercase py-2 font-bold tracking-widest text-sm text-hulu ">
+            hulu + live tv
+          </p>
+          <h2 className="text-3xl md:text-7xl font-black">
+            Live TV Makes It Better
+          </h2>
+          <p className="text-xl md:text-2xl max-w-3xl">
+            Make the switch from cable. Get 75+ top channels with your favorite
+            live sports, news, and events - plus the entire Hulu streaming
+            library.
+          </p>
+          <p className="text-xs text-gray-400">
+            Price will increase to $69.99/month on 12/21/2021. Regional
+            restrictions, blackouts and additional terms apply.
+          </p>
+          <p className="underline">VIEW CHANNELS IN YOUR AREA →</p>
+        </div>
+      </section>
+
+      <section></section>
     </div>
   );
 }
