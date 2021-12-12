@@ -52,7 +52,51 @@ function HomePage() {
           </div>
         </div>
       </header>
-      <section>hello</section>
+      <section className="bg-black py-20">
+        <div className="flex flex-col justify-center items-center gap-3">
+          <p className="uppercase py-2 font-bold tracking-widest text-sm text-hulu">
+            included in all plans
+          </p>
+          <h2 className="text-7xl font-black tracking-wider mb-4">
+            All The TV You Love
+          </h2>
+          <p className="text-2xl max-w-4xl text-center">
+            Stream full seasons of exclusive series, current-season episodes,
+            hit movies, Hulu Originals, kids shows, and more.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-6 justify-center pt-8">
+          <div className="relative">
+            <img src="/cover-1.jpg" className="h-72 md:h-[450px]" />
+            <div className="absolute top-0 left-0 h-full w-full bg-card-shadow p-5">
+              <p>Past & Current Seasons</p>
+              <h3 className="font-bold text-2xl">TV Shows</h3>
+            </div>
+          </div>
+          <div className="relative">
+            <img src="/cover-2.jpg" className="h-72 md:h-[450px]" />
+            <div className="absolute top-0 left-0 h-full w-full bg-card-shadow p-5">
+              <p>New & Classic</p>
+              <h3 className="font-bold text-2xl">Movies</h3>
+            </div>
+          </div>
+          <div className="relative">
+            <img src="/cover-3.jpg" className="h-72 md:h-[450px]" />
+            <div className="absolute top-0 left-0 h-full w-full bg-card-shadow p-5">
+              <p>Groundbreaking</p>
+              <h3 className="font-bold text-2xl">Hulu Originals</h3>
+            </div>
+          </div>
+          <div className="relative">
+            <img src="/cover-4.jpg" className="h-72 md:h-[450px]" />
+            <div className="absolute top-0 left-0 h-full w-full bg-card-shadow p-5">
+              <p>Add-on</p>
+              <h3 className="font-bold text-2xl">Premiums</h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

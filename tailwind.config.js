@@ -16,7 +16,10 @@ module.exports = {
         headerSm: "url('/header-sm.jpg')",
         'header-shadow':
           'linear-gradient(180deg,rgba(0, 0, 0, 0.76) 15.54%, rgba(0, 0, 0, 0.192) 60.23%, rgba(0, 0, 0, 8e-5) 100%)',
+        'card-shadow':
+          'linear-gradient(156.82deg,rgba(0, 0, 0, 0.6) 4.58%,rgba(0, 0, 0, 0) 69.61%),linear-gradient(24.5deg, rgba(0, 0, 0, 0.2) 4.71%, rgba(0, 0, 0, 0) 71.49%)',
       },
+
       colors: {
         hulu: '#1ce783',
       },
