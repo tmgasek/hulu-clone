@@ -1,5 +1,6 @@
 /* ./your-css-folder/styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap');
+@import url('https://db.onlinewebfonts.com/c/105007d99d9df64c50cc24d696d79555?family=Graphik+Web+Regular');
 
 @tailwind base;
 @tailwind components;
@@ -7,6 +8,6 @@
 
 @layer base {
   body {
-    @apply bg-[#06202A] text-gray-300 font-hulu;
+    @apply bg-[#06202A] text-gray-300 font-graphik;
   }
 }
