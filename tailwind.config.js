@@ -14,6 +14,12 @@ module.exports = {
       backgroundImage: {
         headerMd: "url('/header.jpg')",
         headerSm: "url('/header-sm.jpg')",
+        sportsMd: "url('/live-sports.jpg')",
+        sportsSm: "url('/live-sports-small.jpg')",
+        newsMd: "url('/breaking-news.jpg')",
+        newsSm: "url('/breaking-news-sm.jpg')",
+        eventsMd: "url('/biggest-events.jpg')",
+        eventsSm: "url('/biggest-events-sm.jpg')",
         'header-shadow':
           'linear-gradient(180deg,rgba(0, 0, 0, 0.76) 15.54%, rgba(0, 0, 0, 0.192) 60.23%, rgba(0, 0, 0, 8e-5) 100%)',
         'card-shadow':

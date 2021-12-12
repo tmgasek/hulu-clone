@@ -1,14 +1,28 @@
 import Head from 'next/head';
+import { useState } from 'react';
 
 function HomePage() {
+  const [currCover, setCurrCover] = useState('/live-sports.jpg');
   //this works style={{ backgroundImage: 'url("/header.jpg")' }}
+
+  const switchCovers = (selection) => {
+    if (selection === 'sports') {
+      setCurrCover('/live-sports.jpg');
+    }
+    if (selection === 'news') {
+      setCurrCover('/breaking-news.jpg');
+    }
+    if (selection === 'events') {
+      setCurrCover('/biggest-events.jpg');
+    }
+  };
 
   return (
     <div className="text-white">
       <Head>
         <title>Stream TV and Movies Live and Online | Hulu</title>
       </Head>
-      <header className="bg-headerSm md:bg-headerMd bg-cover bg-right bg-no-repeat after:absolute after:top-0 after:w-full after:h-32 after:bg-header-shadow after:z-1 ">
+      <header className="bg-headerSm md:bg-headerMd bg-cover bg-right bg-no-repeat after:absolute after:top-0 after:w-full after:h-32 after:bg-header-shadow after:z-1">
         <nav className="flex justify-end p-5 z-10 relative">
           <button className="cursor-pointer uppercase font-bold ">
             Log In
@@ -119,7 +133,56 @@ function HomePage() {
         </div>
       </section>
 
-      <section></section>
+      {/* TODO: RENDER 3 DIFFERENT COMPONENTS BASED ON CHOICE */}
+
+      <section className="relative">
+        <div
+          className={`h-[800px] bg-sportsSm md:bg-sportsMd bg-cover bg-top bg-no-repeat after:absolute after:top-0 after:w-full after:h-full after:bg-card-shadow after:z-1`}
+        >
+          <div className="relative z-10 flex flex-col max-w-md p-5 md:justify-center md:mx-40">
+            <div className="flex gap-5 mt-4 md:mt-48 mb-20 font-bold text-center">
+              <div>
+                <p onClick={() => switchCovers('sports')}>LIVE SPORTS</p>
+                <div className="border-2 mt-2"></div>
+              </div>
+              <div>
+                <p onClick={() => switchCovers('news')}>BREAKING NEWS</p>
+              </div>
+              <div>
+                <p onClick={() => switchCovers('events')}>BIGGEST EVENTS</p>
+              </div>
+            </div>
+            <h1 className="text-3xl md:text-7xl font-black mb-2">
+              Live Sports
+            </h1>
+            <p className="text-xl md:text-2xl">
+              Catch your games at home or on the go. Stream live games from
+              major college and pro leagues including the NCAA®, NBA, NHL, NFL,
+              and more.
+            </p>
+            <div className="mt-6 flex gap-8 flex-wrap justify-center md:justify-start">
+              <div className="p-1 bg-white rounded-full w-12 h-12 flex justify-center items-center">
+                <img src="/live-sports-logo-1.png" />
+              </div>
+              <div className="p-1 bg-white rounded-full w-12 h-12 flex justify-center items-center">
+                <img src="/live-sports-logo-2.png" />
+              </div>
+              <div className="p-1 bg-white rounded-full w-12 h-12 flex justify-center items-center">
+                <img src="/live-sports-logo-3.svg" />
+              </div>
+              <div className="p-1 bg-white rounded-full w-12 h-12 flex justify-center items-center">
+                <img src="/live-sports-logo-4.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white h-[1000px] text-[#292C33]">
+        <div className="flex flex-col justify-center items-center py-20">
+          <h2 className="text-5xl font-black">Select Your Plan</h2>
+        </div>
+      </section>
     </div>
   );
 }
