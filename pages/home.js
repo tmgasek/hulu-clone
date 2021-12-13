@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
+import BiggestEvents from '../components/BiggestEvents';
 import BreakingNews from '../components/BreakingNews';
 import LiveSports from '../components/LiveSports';
 
@@ -7,17 +9,17 @@ function HomePage() {
   const [currCover, setCurrCover] = useState('sports');
   //this works style={{ backgroundImage: 'url("/header.jpg")' }}
 
-  const switchCovers = (selection) => {
-    if (selection === 'sports') {
-      setCurrCover('/live-sports.jpg');
-    }
-    if (selection === 'news') {
-      setCurrCover('/breaking-news.jpg');
-    }
-    if (selection === 'events') {
-      setCurrCover('/biggest-events.jpg');
-    }
-  };
+  // const switchCovers = (selection) => {
+  //   if (selection === 'sports') {
+  //     setCurrCover('/live-sports.jpg');
+  //   }
+  //   if (selection === 'news') {
+  //     setCurrCover('/breaking-news.jpg');
+  //   }
+  //   if (selection === 'events') {
+  //     setCurrCover('/biggest-events.jpg');
+  //   }
+  // };
 
   return (
     <div className="text-white">
@@ -31,21 +33,24 @@ function HomePage() {
           </button>
         </nav>
 
-        <div className=" flex flex-col justify-between h-auto  py-10">
+        <div className=" flex flex-col justify-between h-auto  ">
           <div className="flex flex-col text-xl items-center mt-4 ">
-            <h4 className="uppercase py-2 font-bold tracking-widest text-sm text-hulu ">
+            <h4 className="uppercase mt-20 font-bold tracking-widest text-hulu ">
               bundle with any hulu plan & save
             </h4>
             <div className="w-1/2">
               <img src="/logos.png" />
             </div>
-            <div className="font-extrabold  text-2xl p-4 max-w-2xl  text-center">
+            <div className="font-extrabold  text-2xl p-4 max-w-2xl py-10 text-center">
               Get endless entertainment, live sports, and the shows and movies
               you love.
             </div>
-            <button className="uppercase bg-white text-black p-4 px-8 rounded-lg font-semibold text-sm tracking-widest mt-4">
-              get the disney bundle
-            </button>
+            <Link href={'/'}>
+              <button className="uppercase bg-white text-black p-4 px-10 rounded-lg font-semibold text-xl tracking-wider mt-4">
+                ENTER SITE
+              </button>
+            </Link>
+
             <p className="text-sm p-6">See details and bundle terms</p>
           </div>
           <div className="p-4  bg-black/50 flex flex-col gap-6 md:gap-0 md:flex-row justify-evenly items-center ">
@@ -110,7 +115,7 @@ function HomePage() {
               <p>Add-on</p>
               <h3 className="font-bold text-2xl">Premiums</h3>
             </div>
-            <p className=" text-[10px] text-center my-2">
+            <p className=" text-[10px] text-center mt-2 max-w-[200px] md:max-w-max">
               Premium network add-ons available for an additional cost
             </p>
           </div>
@@ -138,38 +143,30 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TODO: RENDER 3 DIFFERENT COMPONENTS BASED ON CHOICE */}
+      {/* DYNAMIC OPTIONS BUT IT LAGS ON SWITCH FIRST TIME.  */}
 
-      <section className="relative">
-        <div
-          className={`h-[800px] ${
+      {/* className={`h-[800px] ${    
             currCover === 'sports' ? 'bg-sportsSm md:bg-sportsMd' : ''
           }${currCover === 'news' ? 'bg-newsSm md:bg-newsMd' : ''}
-          ${currCover === 'events' ? 'bg-eventsSm md:bg-eventsMd' : ''}
-           bg-cover bg-top bg-no-repeat after:absolute after:top-0 after:w-full after:h-full after:bg-card-shadow after:z-1`}
-        >
-          <div className="relative z-10 flex flex-col max-w-md p-5 md:justify-center md:mx-40">
-            <div className="flex gap-5 mt-4 md:mt-48 mb-14 font-bold text-center">
-              <div>
-                <p onClick={() => setCurrCover('sports')}>LIVE SPORTS</p>
-                <div className="border-2 mt-2"></div>
-              </div>
-              <div>
-                <p onClick={() => setCurrCover('news')}>BREAKING NEWS</p>
-              </div>
-              <div>
-                <p onClick={() => setCurrCover('events')}>BIGGEST EVENTS</p>
-              </div>
-            </div>
-          </div>
-          {currCover === 'sports' && <LiveSports />}
-          {currCover === 'news' && <BreakingNews />}
-        </div>
+          ${currCover === 'events' ? 'bg-eventsSm md:bg-eventsMd' : ''} */}
+
+      <section className="relative">
+        {currCover === 'sports' && <LiveSports setCurrCover={setCurrCover} />}
+        {currCover === 'news' && <BreakingNews setCurrCover={setCurrCover} />}
+        {currCover === 'events' && (
+          <BiggestEvents setCurrCover={setCurrCover} />
+        )}
       </section>
 
       <section className="bg-white h-[1000px] text-[#292C33]">
         <div className="flex flex-col justify-center items-center py-20">
-          <h2 className="text-5xl font-black">Select Your Plan</h2>
+          <h2 className="text-7xl font-black">Select Your Plan</h2>
+          <p className="text-2xl">
+            No hidden fees, equipment rentals, or installation appointments.
+          </p>
+          <p className="text-2xl font-black">
+            Switch plans or cancel anytime. ^^
+          </p>
         </div>
       </section>
     </div>
