@@ -142,7 +142,11 @@ function HomePage() {
 
       <section className="relative">
         <div
-          className={`h-[800px] bg-${currCover}Sm md:bg-${currCover}Md bg-cover bg-top bg-no-repeat after:absolute after:top-0 after:w-full after:h-full after:bg-card-shadow after:z-1`}
+          className={`h-[800px] ${
+            currCover === 'sports' ? 'bg-sportsSm md:bg-sportsMd' : ''
+          }${currCover === 'news' ? 'bg-newsSm md:bg-newsMd' : ''}
+          ${currCover === 'events' ? 'bg-eventsSm md:bg-eventsMd' : ''}
+           bg-cover bg-top bg-no-repeat after:absolute after:top-0 after:w-full after:h-full after:bg-card-shadow after:z-1`}
         >
           <div className="relative z-10 flex flex-col max-w-md p-5 md:justify-center md:mx-40">
             <div className="flex gap-5 mt-4 md:mt-48 mb-14 font-bold text-center">
