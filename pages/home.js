@@ -176,7 +176,7 @@ function HomePage() {
             </p>
           </div>
 
-          <div className="flex lg:flex-row flex-col border-t-2 mb-4 sticky top-0 bg-white ">
+          <div className="flex lg:flex-row flex-col border-t-2 mb-4 sticky top-0 bg-white z-50 ">
             <div className="lg:flex-grow flex justify-between items-center m-4 lg:block  ">
               <div>
                 <img src="/bundles.svg" />

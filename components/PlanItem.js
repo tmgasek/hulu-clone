@@ -9,17 +9,17 @@ function PlanItem({ text, stars }) {
         <p className="hidden lg:flex w-1/3 xl:w-2/3 ">{text}</p>
         <div className="flex justify-center items-center w-1/3">
           {(stars[0] && <CheckIcon className="h-6 w-6" />) || (
-            <MinusIcon className="h-6 w-6 opacity-40" />
+            <MinusIcon className="h-6 w-6 text-gray-300" />
           )}
         </div>
         <div className="flex justify-center items-center w-1/3 ">
           {(stars[1] && <CheckIcon className="h-6 w-6" />) || (
-            <MinusIcon className="h-6 w-6 opacity-40" />
+            <MinusIcon className="h-6 w-6 text-gray-300" />
           )}
         </div>
         <div className="flex justify-center items-center w-1/3">
           {(stars[2] && <CheckIcon className="h-6 w-6" />) || (
-            <MinusIcon className="h-6 w-6 opacity-40" />
+            <MinusIcon className="h-6 w-6 text-gray-300 z-0" />
           )}
         </div>
       </div>
