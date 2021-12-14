@@ -6,7 +6,6 @@ module.exports = {
     extend: {
       fontFamily: {
         hulu: ['Khula'],
-        graphik: ['Graphik Web Regular'],
       },
       screens: {
         '3xl': '2000px',
