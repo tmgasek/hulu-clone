@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
+
 function Footer() {
   const [browseActive, setBrowseActive] = useState(false);
   const [helpActive, setHelpActive] = useState(false);
