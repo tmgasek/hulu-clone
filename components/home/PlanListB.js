@@ -17,7 +17,7 @@ function PlanListB() {
         </div>
       </div>
       <PlanItem
-        text="Hulu Streaming Library with thousands of episodes and moviesHulu Streaming Library with thousands of episodes and movies"
+        text="Hulu Streaming Library with thousands of episodes and movies"
         stars={[true, true, true]}
       />
       <PlanItem
@@ -33,7 +33,7 @@ function PlanListB() {
         stars={[true, true, true]}
       />
       <PlanItem
-        text="Live sports with ESPN+, now on HuluLive sports with ESPN+, now on Hulu"
+        text="Live sports with ESPN+, now on Hulu"
         stars={[true, true, true]}
       />
       <PlanItem

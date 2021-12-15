@@ -5,8 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* bg-[#06202A] */
+
 @layer base {
   body {
-    @apply bg-[#06202A] text-gray-300 font-hulu;
+    @apply bg-[#06202A] bg-bg-shadow text-gray-300 font-hulu;
   }
 }

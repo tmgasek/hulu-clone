@@ -1,5 +1,8 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Header from '../../components/Header';
+import { ArrowLeftIcon } from '@heroicons/react/outline';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
@@ -8,45 +11,72 @@ export default function MoviePage({ movie }) {
 
   console.log(movie);
 
+  //bg-gradient-to-t from-black
+
   //from-[#06202A]
   return (
     <div className="relative">
-      <div className="z-10 w-full h-screen absolute top-0 bg-gradient-to-t from-black  ">
+      <div className="z-10 w-full h-screen absolute top-0 bg-bg-img-shadow ">
         <img
           src={`${BASE_URL}${movie.backdrop_path || movie.poster_path}`}
           className="object-cover w-full h-full opacity-20 "
         />
 
-        <div className="absolute top-0 m-4 md:m-20 md:w-1/2">
-          <button
-            className="p-1 px-4 mb-4 uppercase text-xl text-white"
-            onClick={() => router.back()}
-          >
-            back
-          </button>
-          <div className="flex flex-wrap">
-            {movie.production_companies &&
-              movie.production_companies.map((c) => (
-                <div key={c.id} className="mx-1 md:mx-4 w-12 h-12">
-                  {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
-                </div>
-              ))}
+        <div className="absolute top-0  h-full w-full">
+          <div className="">
+            <Header />
           </div>
-          <h1 className="text-3xl md:text-4xl mt-20 font-semibold uppercase tracking-wider">
-            {movie.title}
-          </h1>
-          <p className="italic opacity-70">{movie.tagline}</p>
-          <p className="md:text-lg mt-10 max-w-lg">{movie.overview}</p>
-          <div className="mt-4">
-            {movie.genres &&
-              movie.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
+
+          <div className="md:mx-12">
+            <button
+              className="mb-4 uppercase text-gray-200"
+              onClick={() => router.back()}
+            >
+              <div className="group flex flex-col items-center cursor-pointer w-12 sm:w-20 hover:text-white">
+                <ArrowLeftIcon className="h-10 w-10 group-hover:animate-bounce" />
+                <p className="tracking-widest opacity-0 group-hover:opacity-100">
+                  back
+                </p>
+              </div>
+            </button>
+            <div className="flex flex-wrap">
+              {movie.production_companies &&
+                movie.production_companies.map((c) => (
+                  <div key={c.id} className="mx-1 md:mx-4 w-12 h-12">
+                    {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
+                  </div>
+                ))}
+            </div>
+            <h1 className="text-3xl md:text-5xl mt-10 font-bold uppercase tracking-wider">
+              {movie.title}
+            </h1>
+            <p className="italic opacity-70">{movie.tagline}</p>
+            <p className="md:text-xl mt-10 max-w-lg tracking-wider">
+              {movie.overview}
+            </p>
+            <div className="mt-4 text-gray-400 flex gap-5 text-sm">
+              {movie.genres &&
+                movie.genres.map((genre) => (
+                  <p key={genre.id}>{genre.name} </p>
+                ))}
+            </div>
+            {movie.runtime != 0 && (
+              <p className="mt-4">{movie.runtime} minutes</p>
+            )}
+            <div className="mt-4">
+              <p>
+                {movie.vote_average} / 10 ({movie.vote_count} ratings)
+              </p>
+            </div>
+            <div className="my-20">
+              <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
+                <img src="/imdb.png" className="h-12" />
+              </Link>
+            </div>
           </div>
-          {movie.runtime != 0 && (
-            <p className="mt-4">{movie.runtime} minutes</p>
-          )}
         </div>
+        {/* <div className=" h-20 bg-gradient-to-b from-black opacity-95">hi</div> */}
       </div>
-      {/* <div className=" h-20 bg-gradient-to-b from-black opacity-95">hi</div> */}
     </div>
   );
 }

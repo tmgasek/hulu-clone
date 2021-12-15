@@ -16,8 +16,6 @@ function HomePage() {
   const [currCover, setCurrCover] = useState('sports');
   const [bundleActive, setBundleActive] = useState(false);
 
-  console.log(bundleActive);
-
   //this works style={{ backgroundImage: 'url("/header.jpg")' }}
 
   // const switchCovers = (selection) => {
