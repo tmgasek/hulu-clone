@@ -29,7 +29,7 @@ export default function MoviePage({ movie }) {
 
           <div className="md:mx-12">
             <button
-              className="mb-4 uppercase text-gray-200"
+              className="mb-4 uppercase text-gray-200 absolute top-20 left-5 sm:static"
               onClick={() => router.back()}
             >
               <div className="group flex flex-col items-center cursor-pointer w-12 sm:w-20 hover:text-white">
@@ -39,39 +39,41 @@ export default function MoviePage({ movie }) {
                 </p>
               </div>
             </button>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap mx-3">
               {movie.production_companies &&
                 movie.production_companies.map((c) => (
-                  <div key={c.id} className="mx-1 md:mx-4 w-12 h-12">
+                  <div key={c.id} className="mx-1 md:mx-4 w-10 h-10">
                     {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
                   </div>
                 ))}
             </div>
-            <h1 className="text-3xl md:text-5xl mt-10 font-bold uppercase tracking-wider">
-              {movie.title}
-            </h1>
-            <p className="italic opacity-70">{movie.tagline}</p>
-            <p className="md:text-xl mt-10 max-w-lg tracking-wider">
-              {movie.overview}
-            </p>
-            <div className="mt-4 text-gray-400 flex gap-5 text-sm">
-              {movie.genres &&
-                movie.genres.map((genre) => (
-                  <p key={genre.id}>{genre.name} </p>
-                ))}
-            </div>
-            {movie.runtime != 0 && (
-              <p className="mt-4">{movie.runtime} minutes</p>
-            )}
-            <div className="mt-4">
-              <p>
-                {movie.vote_average} / 10 ({movie.vote_count} ratings)
+            <div className="bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3  md:w-1/2">
+              <h1 className="text-2xl md:text-4xl mt-1 font-bold uppercase tracking-wider">
+                {movie.title}
+              </h1>
+              <p className="italic opacity-70">{movie.tagline}</p>
+              <p className="text-sm md:text-xl mt-2 max-w-lg tracking-wider">
+                {movie.overview}
               </p>
-            </div>
-            <div className="my-20">
-              <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
-                <img src="/imdb.png" className="h-12" />
-              </Link>
+              <div className="mt-1 text-gray-400 flex gap-5 text-sm">
+                {movie.genres &&
+                  movie.genres.map((genre) => (
+                    <p key={genre.id}>{genre.name} </p>
+                  ))}
+              </div>
+              {movie.runtime != 0 && (
+                <p className="mt-1">{movie.runtime} minutes</p>
+              )}
+              <div className="mt-1">
+                <p>
+                  {movie.vote_average} / 10 ({movie.vote_count} ratings)
+                </p>
+              </div>
+              <div className="my-10">
+                <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
+                  <img src="/imdb.png" className="h-12" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

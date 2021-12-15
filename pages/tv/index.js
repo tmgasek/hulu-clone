@@ -12,7 +12,7 @@ export default function TvPage({ tv }) {
 
   //from-[#06202A]
   return (
-    <div className="z-10 w-full h-[1000px] md:h-full absolute top-0 ">
+    <div className="z-10 w-full h-[1000px] md:h-full absolute top-0 bg-bg-img-shadow  ">
       <img
         src={`${BASE_URL}${tv.backdrop_path || tv.poster_path}`}
         className="object-cover w-full h-full opacity-20 "
@@ -24,7 +24,7 @@ export default function TvPage({ tv }) {
 
         <div className="md:mx-8">
           <button
-            className="mb-4 uppercase text-gray-200 hidden md:block"
+            className="mb-4 uppercase text-gray-200 absolute top-20 left-5 sm:static"
             onClick={() => router.back()}
           >
             <div className="group flex flex-col items-center cursor-pointer w-12 sm:w-20 hover:text-white">
