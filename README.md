@@ -7,3 +7,9 @@ Technologies used:
 - React.js
 - Next.js
 - TailwindCSS
+
+You can find the site live [HERE](https://hulu-clone-rho-ten.vercel.app/)
+
+To run this site locally, clone this repo and use:
+- `yarn install`
+- `yarn dev`
