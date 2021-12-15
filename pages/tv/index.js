@@ -12,86 +12,82 @@ export default function TvPage({ tv }) {
 
   //from-[#06202A]
   return (
-    <div className="relative">
-      <div className="z-10 w-full h-screen absolute top-0 bg-bg-img-shadow ">
-        <img
-          src={`${BASE_URL}${tv.backdrop_path || tv.poster_path}`}
-          className="object-cover w-full h-full opacity-20 "
-        />
-        <div className="absolute top-0 h-full w-full">
-          <div className="">
-            <Header />
+    <div className="z-10 w-full h-[1000px] md:h-full absolute top-0 ">
+      <img
+        src={`${BASE_URL}${tv.backdrop_path || tv.poster_path}`}
+        className="object-cover w-full h-full opacity-20 "
+      />
+      <div className="absolute top-0 h-full w-full">
+        <div className="">
+          <Header />
+        </div>
+
+        <div className="md:mx-8">
+          <button
+            className="mb-4 uppercase text-gray-200 hidden md:block"
+            onClick={() => router.back()}
+          >
+            <div className="group flex flex-col items-center cursor-pointer w-12 sm:w-20 hover:text-white">
+              <ArrowLeftIcon className="h-10 w-10 group-hover:animate-bounce" />
+              <p className="tracking-widest opacity-0 group-hover:opacity-100">
+                back
+              </p>
+            </div>
+          </button>
+          <div className="hidden md:flex flex-wrap mx-3 mb-6">
+            {tv.production_companies &&
+              tv.production_companies.map((c) => (
+                <div key={c.id} className="mx-1 md:mx-4 w-10 h-10">
+                  {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
+                </div>
+              ))}
           </div>
 
-          <div className="md:mx-8">
-            <button
-              className="mb-4 uppercase text-gray-200 hidden md:block"
-              onClick={() => router.back()}
-            >
-              <div className="group flex flex-col items-center cursor-pointer w-12 sm:w-20 hover:text-white">
-                <ArrowLeftIcon className="h-10 w-10 group-hover:animate-bounce" />
-                <p className="tracking-widest opacity-0 group-hover:opacity-100">
-                  back
-                </p>
+          <div className="flex flex-col md:flex-row justify-between ">
+            <div className="bg-black/40 bg-gradient-to-r rounded-3xl p-3  mx-3 md:w-1/2 max-h-full overflow-scroll scrollbar-hide ">
+              <div className="flex flex-wrap">
+                {tv.created_by &&
+                  tv.created_by.map((c) => (
+                    <div key={c.id} className="mx-1 md:mx-4">
+                      <p>{c.name}</p>
+                    </div>
+                  ))}
               </div>
-            </button>
-            <div className="flex flex-wrap mx-3 mb-6">
-              {tv.production_companies &&
-                tv.production_companies.map((c) => (
-                  <div key={c.id} className="mx-1 md:mx-4 w-10 h-10">
-                    {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
-                  </div>
-                ))}
+              <h1 className="text-xl lg:text-3xl mt-3 font-bold uppercase tracking-wider">
+                {tv.name}
+              </h1>
+              <p className="italic opacity-70 text-xs md:text-md">
+                {tv.tagline}
+              </p>
+              <p className="lg:text-lg text-sm mt-3 md:max-w-lg tracking-wider ">
+                {tv.overview}
+              </p>
+              <div className="mt-1 text-gray-400 flex gap-5 text-sm">
+                {tv.genres &&
+                  tv.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
+              </div>
+
+              <p className="mt-1">{tv.episode_run_time} minute long episodes</p>
+              <p className="mt-1">
+                {tv.vote_average} / 10 ({tv.vote_count} ratings)
+              </p>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between ">
-              <div className="bg-black/40 bg-gradient-to-r rounded-3xl p-3  mx-3 md:w-1/2 ">
-                <div className="flex flex-wrap">
-                  {tv.created_by &&
-                    tv.created_by.map((c) => (
-                      <div key={c.id} className="mx-1 md:mx-4">
-                        <p>{c.name}</p>
-                      </div>
-                    ))}
-                </div>
-                <h1 className="text-3xl md:text-5xl mt-3 font-bold uppercase tracking-wider">
-                  {tv.name}
-                </h1>
-                <p className="italic opacity-70">{tv.tagline}</p>
-                <p className="lg:text-xl mt-3 max-w-lg tracking-wider ">
-                  {tv.overview}
-                </p>
-                <div className="mt-4 text-gray-400 flex gap-5 text-sm">
-                  {tv.genres &&
-                    tv.genres.map((genre) => (
-                      <p key={genre.id}>{genre.name} </p>
-                    ))}
-                </div>
-
-                <p className="mt-4">
-                  {tv.episode_run_time} minute long episodes
-                </p>
-                <p className="mt-4 lg:text-xl">
-                  {tv.vote_average} / 10 ({tv.vote_count} ratings)
-                </p>
-              </div>
-
-              <div className=" bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3 md:w-1/2 my-4 md:my-0">
-                <div className="flex flex-col items-center">
-                  <h1 className="text-xl underline mb-1">Seasons</h1>
-                  <div className="flex md:flex-wrap justify-center text-center items-center gap-x-2 md:gap-x-5 max-h-[600px] overflow-y-scroll scrollbar-hide ">
-                    {tv.seasons.map((s) => (
-                      <div key={s.name} className="">
-                        <h1 className="hidden md:block">{s.name}</h1>
-                        <Image
-                          src={`${BASE_URL}${s.poster_path}`}
-                          className="rounded-3xl"
-                          height={350}
-                          width={240}
-                        />
-                      </div>
-                    ))}
-                  </div>
+            <div className=" bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3 md:w-1/2 my-4 md:my-0 max-h-full overflow-scroll scrollbar-hide">
+              <div className="flex flex-col items-center">
+                <h1 className="text-xl underline mb-1">Seasons</h1>
+                <div className="flex m-auto gap-3 ">
+                  {tv.seasons.map((s) => (
+                    <div key={s.name} className="w-32">
+                      <h1 className="hidden md:block">{s.name}</h1>
+                      <Image
+                        src={`${BASE_URL}${s.poster_path}`}
+                        className="rounded-3xl"
+                        height={350}
+                        width={240}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
