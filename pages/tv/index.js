@@ -59,7 +59,7 @@ export default function TvPage({ tv }) {
               <p className="italic opacity-70 text-xs md:text-md">
                 {tv.tagline}
               </p>
-              <p className="lg:text-lg text-sm mt-3 md:max-w-lg tracking-wider ">
+              <p className="lg:text-lg text-sm mt-3 tracking-wider ">
                 {tv.overview}
               </p>
               <div className="mt-1 text-gray-400 flex gap-5 text-sm">
@@ -73,7 +73,7 @@ export default function TvPage({ tv }) {
               </p>
             </div>
 
-            <div className=" bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3 md:w-1/2 my-4 md:my-0 max-h-full overflow-scroll scrollbar-hide">
+            <div className=" bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3 md:w-1/2 my-4 md:my-0 overflow-scroll scrollbar-hide">
               <div className="flex flex-col items-center">
                 <h1 className="text-xl underline mb-1">Seasons</h1>
                 <div className="flex m-auto gap-3 ">

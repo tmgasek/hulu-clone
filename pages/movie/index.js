@@ -47,7 +47,7 @@ export default function MoviePage({ movie }) {
                   </div>
                 ))}
             </div>
-            <div className="bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3  md:w-1/2">
+            <div className="bg-black/40 bg-gradient-to-r rounded-3xl p-3 mx-3 md:w-max ">
               <h1 className="text-2xl md:text-4xl mt-1 font-bold uppercase tracking-wider">
                 {movie.title}
               </h1>
@@ -70,9 +70,11 @@ export default function MoviePage({ movie }) {
                 </p>
               </div>
               <div className="my-10">
-                <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
-                  <img src="/imdb.png" className="h-12" />
-                </Link>
+                {movie.imdb_id && (
+                  <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
+                    <img src="/imdb.png" className="h-8 md:h-12" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
