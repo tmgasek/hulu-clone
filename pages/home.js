@@ -1,19 +1,19 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import { useState } from 'react';
-import BiggestEvents from '../components/home/BiggestEvents';
-import BreakingNews from '../components/home/BreakingNews';
-import LiveSports from '../components/home/LiveSports';
+import Head from "next/head";
+import Link from "next/link";
+import { useState } from "react";
+import BiggestEvents from "../components/home/BiggestEvents";
+import BreakingNews from "../components/home/BreakingNews";
+import LiveSports from "../components/home/LiveSports";
 
-import Footer from '../components/home/Footer';
-import PlanListA from '../components/home/PlanListA';
-import PlanListB from '../components/home/PlanListB';
-import PlanHeadingA from '../components/home/PlanHeadingA';
-import PlanHeadingB from '../components/home/PlanHeadingB';
-import Addons from '../components/home/Addons';
+import Footer from "../components/home/Footer";
+import PlanListA from "../components/home/PlanListA";
+import PlanListB from "../components/home/PlanListB";
+import PlanHeadingA from "../components/home/PlanHeadingA";
+import PlanHeadingB from "../components/home/PlanHeadingB";
+import Addons from "../components/home/Addons";
 
 function HomePage() {
-  const [currCover, setCurrCover] = useState('sports');
+  const [currCover, setCurrCover] = useState("sports");
   const [bundleActive, setBundleActive] = useState(false);
 
   //this works style={{ backgroundImage: 'url("/header.jpg")' }}
@@ -35,14 +35,14 @@ function HomePage() {
       <Head>
         <title>Stream TV and Movies Live and Online | Hulu</title>
       </Head>
-      <header className="bg-headerSm md:bg-headerMd bg-cover bg-right bg-no-repeat after:absolute after:top-0 after:w-full after:h-32 after:bg-header-shadow after:z-1 ">
+      <header className="bg-headerSm md:bg-headerMd bg-cover bg-right bg-no-repeat after:absolute after:top-0 after:w-full after:h-32 after:bg-header-shadow after:z-1">
         <nav className="flex justify-end p-5 z-10 relative">
           <button className="cursor-pointer uppercase font-bold ">
             Log In
           </button>
         </nav>
 
-        <div className=" flex flex-col justify-between h-auto  ">
+        <div className="flex flex-col justify-between h-auto">
           <div className="flex flex-col text-xl items-center mt-4 ">
             <h4 className="uppercase md:mt-14 font-bold tracking-wider text-hulu text-center text-sm md:text-lg">
               bundle with any hulu plan & save
@@ -54,7 +54,7 @@ function HomePage() {
               Get endless entertainment, live sports, and the shows and movies
               you love.
             </div>
-            <Link href={'/'}>
+            <Link href={"/"}>
               <button className="uppercase bg-white text-black p-4 px-10 rounded-lg font-semibold text-xl tracking-wider md:mt-4">
                 ENTER SITE
               </button>
@@ -62,7 +62,7 @@ function HomePage() {
 
             <p className="text-sm p-6">See details and bundle terms</p>
           </div>
-          <div className="p-4  bg-black/50 flex flex-col gap-6 md:gap-0 md:flex-row justify-evenly items-center ">
+          <div className="p-4  bg-black/50 flex flex-col gap-6 md:gap-0 md:flex-row justify-evenly items-center">
             <div className="w-60 ">
               <img src="/logo.png" className="h-12 m-auto" />
             </div>
@@ -96,7 +96,7 @@ function HomePage() {
             hit movies, Hulu Originals, kids shows, and more.
           </p>
         </div>
-        <div className="flex flex-wrap gap-6 justify-center pt-8 ">
+        <div className="flex flex-wrap gap-6 justify-center pt-8">
           <div className="relative">
             <img src="/cover-1.jpg" className="h-72 md:h-[450px]" />
             <div className="absolute top-0 left-0 h-full w-full bg-card-shadow p-5">
@@ -160,9 +160,9 @@ function HomePage() {
           ${currCover === 'events' ? 'bg-eventsSm md:bg-eventsMd' : ''} */}
 
       <section className="relative">
-        {currCover === 'sports' && <LiveSports setCurrCover={setCurrCover} />}
-        {currCover === 'news' && <BreakingNews setCurrCover={setCurrCover} />}
-        {currCover === 'events' && (
+        {currCover === "sports" && <LiveSports setCurrCover={setCurrCover} />}
+        {currCover === "news" && <BreakingNews setCurrCover={setCurrCover} />}
+        {currCover === "events" && (
           <BiggestEvents setCurrCover={setCurrCover} />
         )}
       </section>

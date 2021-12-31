@@ -1,13 +1,13 @@
-import Thumbnail from './Thumbnail';
-import FlipMove from 'react-flip-move';
-import { useRouter } from 'next/router';
-import Pagination from './Pagination';
+import Thumbnail from "./Thumbnail";
+import FlipMove from "react-flip-move";
+import { useRouter } from "next/router";
+import Pagination from "./Pagination";
 
 function Results({ data }) {
   const router = useRouter();
 
   const pushBasedOnMediaType = (item) => {
-    if (item.media_type === 'tv') {
+    if (item.media_type === "tv") {
       router.push(`/tv?id=${item.id}`);
     } else {
       router.push(`/movie?id=${item.id}`);
