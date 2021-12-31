@@ -22,7 +22,7 @@ export default function MoviePage({ movie }) {
           className="object-cover w-full h-full opacity-20 "
         />
 
-        <div className="absolute top-0  h-full w-full">
+        <div className="absolute top-0 h-full w-full">
           <div className="">
             <Header />
           </div>
@@ -39,11 +39,15 @@ export default function MoviePage({ movie }) {
                 </p>
               </div>
             </button>
-            <div className="flex flex-wrap mx-3">
+            <div className="flex flex-wrap pl-6 gap-6 mb-5">
               {movie.production_companies &&
                 movie.production_companies.map((c) => (
-                  <div key={c.id} className="mx-1 md:mx-4 w-10 h-10">
-                    {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
+                  <div key={c.id} className="w-16">
+                    {c.logo_path ? (
+                      <img src={`${BASE_URL}/${c.logo_path}`} />
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 ))}
             </div>
@@ -52,7 +56,7 @@ export default function MoviePage({ movie }) {
                 {movie.title}
               </h1>
               <p className="italic opacity-70">{movie.tagline}</p>
-              <p className="text-sm md:text-xl mt-2 max-w-lg tracking-wider">
+              <p className="text-sm md:text-xl mt-2 md:max-w-lg tracking-wider">
                 {movie.overview}
               </p>
               <div className="mt-1 text-gray-400 flex gap-5 text-sm">
@@ -69,7 +73,7 @@ export default function MoviePage({ movie }) {
                   {movie.vote_average} / 10 ({movie.vote_count} ratings)
                 </p>
               </div>
-              <div className="my-10">
+              <div className="my-2 md:my-10">
                 {movie.imdb_id && (
                   <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
                     <img src="/imdb.png" className="h-8 md:h-12" />
