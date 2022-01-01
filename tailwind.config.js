@@ -24,14 +24,6 @@ module.exports = {
           'linear-gradient(180deg,rgba(0, 0, 0, 0.76) 15.54%, rgba(0, 0, 0, 0.192) 60.23%, rgba(0, 0, 0, 8e-5) 100%)',
         'card-shadow':
           'linear-gradient(156.82deg,rgba(0, 0, 0, 0.6) 4.58%,rgba(0, 0, 0, 0) 69.61%),linear-gradient(24.5deg, rgba(0, 0, 0, 0.2) 4.71%, rgba(0, 0, 0, 0) 71.49%)',
-        'bg-shadow':
-          'linear-gradient(90deg, rgba(5,24,31,1) 0%, rgba(6,32,42,1) 70%, rgba(8,44,61,1) 100%)',
-        'bg-img-shadow':
-          'linear-gradient(167deg, rgba(2,7,10,1) 58%, rgba(30,87,108,1) 100%);',
-        'hero-shadow':
-          'linear-gradient(90deg, rgba(0,0,0,1) 32%, rgba(255,255,255,0) 100%)',
-        'hulu-gradient':
-          'linear-gradient(114deg, rgba(4,4,5,1) 19%, rgba(24,57,73,1) 89%)',
       },
 
       colors: {

@@ -26,7 +26,7 @@ export default function MoviePage({
   }`}')`;
 
   return (
-    <>
+    <div className="">
       <Header />
       <div className="">
         {/* <div className="relative max-w-[1780px] mx-auto ">
@@ -39,7 +39,7 @@ export default function MoviePage({
           <div className="absolute top-0">hhello</div>
         </div> */}
 
-        <section className="max-w-[1780px] mx-auto relative">
+        <section className="max-w-[1780px] mx-auto relative ">
           <div
             className="bg-cover bg-right hero-image flex"
             style={{
@@ -135,7 +135,7 @@ export default function MoviePage({
         <Results data={recommended} />
       </div> */}
       </div>
-    </>
+    </div>
   );
 }
 

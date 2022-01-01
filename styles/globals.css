@@ -10,8 +10,31 @@
 
 @layer base {
   body {
-    @apply bg-[#040405] bg-hulu-gradient text-gray-300 font-hulu;
+    @apply text-gray-300 font-hulu;
   }
+}
+
+html::before,
+body::before {
+  content: '';
+  content: '';
+  width: 100%;
+  height: 100vh;
+  /* //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
+    // background: #D3D3D3; */
+  background: rgb(4, 4, 5);
+  background: linear-gradient(
+    100deg,
+    rgba(4, 4, 5, 1) 23%,
+    rgba(24, 57, 73, 1) 89%
+  );
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* need to sort out gradients mismatching */
@@ -25,9 +48,11 @@
   position: absolute;
   background: rgb(4, 4, 5);
   background: linear-gradient(
-    114deg,
-    rgba(4, 4, 5, 1) 23%,
-    rgba(24, 57, 73, 0.06066176470588236) 89%
+    90deg,
+    rgba(4, 4, 5, 0.9) 19%,
+    rgba(10, 20, 26, 0.68) 42%,
+    rgba(15, 33, 42, 0.48) 62%,
+    rgba(24, 57, 73, 0.11) 94%
   );
   bottom: 0;
   left: 0;
