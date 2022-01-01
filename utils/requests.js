@@ -50,5 +50,43 @@ export default {
 };
 
 export const searchQuery = `${BASE_URL}/search/multi?api_key=${API_KEY}`;
-export const movieQuery = (movieId) =>
-  `${BASE_URL}/movie/${movieId}/?api_key=${API_KEY}`;
+
+export const getMovieDetails = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data;
+};
+
+export const getActorDetails = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data;
+};
+
+export const getRecommendedMovies = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data;
+};
+
+export const getMovieReviews = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data;
+};
+
+export const getMovieVideos = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data;
+};

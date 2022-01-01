@@ -28,6 +28,10 @@ module.exports = {
           'linear-gradient(90deg, rgba(5,24,31,1) 0%, rgba(6,32,42,1) 70%, rgba(8,44,61,1) 100%)',
         'bg-img-shadow':
           'linear-gradient(167deg, rgba(2,7,10,1) 58%, rgba(30,87,108,1) 100%);',
+        'hero-shadow':
+          'linear-gradient(90deg, rgba(0,0,0,1) 32%, rgba(255,255,255,0) 100%)',
+        'hulu-gradient':
+          'linear-gradient(114deg, rgba(4,4,5,1) 19%, rgba(24,57,73,1) 89%)',
       },
 
       colors: {

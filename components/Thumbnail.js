@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
-//http://localhost:3000/movie?id=576845
-
 const Thumbnail = forwardRef(({ item }, ref) => {
   const getImgSrc = (item) => {
     if (item.backdrop_path) {
