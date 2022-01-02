@@ -12,6 +12,14 @@ import {
 
 const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
+function timeConvert(n) {
+  const hours = n / 60;
+  const rhours = Math.floor(hours);
+  const minutes = (hours - rhours) * 60;
+  const rminutes = Math.round(minutes);
+  return rhours + 'h ' + rminutes + 'm';
+}
+
 export default function MoviePage({
   movie,
   actors,
@@ -19,8 +27,6 @@ export default function MoviePage({
   reviews,
   videos,
 }) {
-  // console.log(videos);
-
   const bgClass = `url('${`${BASE_URL}${
     movie.backdrop_path || movie.poster_path
   }`}')`;
@@ -28,113 +34,120 @@ export default function MoviePage({
   return (
     <div className="">
       <Header />
-      <div className="">
-        {/* <div className="relative max-w-[1780px] mx-auto ">
-          <Image
-            src={`${BASE_URL}${movie.backdrop_path || movie.poster_path}`}
-            className=""
-            height={1000}
-            width={1780}
-          />
-          <div className="absolute top-0">hhello</div>
-        </div> */}
 
-        <section className="max-w-[1780px] mx-auto relative ">
+      <section>
+        <div className="max-w-[1780px] max-h-[800px] mx-auto relative  ">
           <div
-            className="bg-cover bg-right hero-image flex"
+            className="bg-cover bg-right-top hero-image hidden md:flex "
             style={{
               backgroundImage: bgClass,
             }}
           >
-            <div className="flex flex-col min-h-[800px] max-h-[800px] max-w-xl z-30 mx-12 py-12 justify-center">
-              <h1 className="text-4xl tracking-wider  mb-12">{movie.title}</h1>
-              <p className="text-xl">{movie.overview}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* <section className="bg-red-200 text-green-900">
-          <div className="relative">
-            <div
-              className="min-h-[800px] hero-image bg-right-bottom bg-cover flex"
-              style={{
-                backgroundImage:
-                  'url(https://images.unsplash.com/photo-1457131760772-7017c6180f05?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ)',
-              }}
-            >
-              <div className="relative container mx-auto p-4 flex items-end z-10">
-                <div>
-                  <div className="content float-left py-4 px-5 my-5">
-                    <div className="heading mb-3 text-2xl md:text-4xl">
-                      Affordable year-round care. No insurance required!
-                    </div>
-                    <div className="text leading-normal hidden sm:block">
-                      Helping Women Meet All of their Health Care Needs
-                    </div>
-                  </div>
-                  <div className="cta clear-left px-5">
-                    <a
-                      className="
-                no-underline
-                btn btn-primary 
-                block sm:inline-block global-transition
-                text-white"
-                      href=""
-                      target=""
-                    >
-                      <div className="flex justify-center items-center">
-                        <span>Join Alpha Today</span>
-                        <span className="fa fa-xs fa-arrow-right ml-4"></span>
-                      </div>
-                    </a>
-                  </div>
-                </div>
+            <div className="flex text-white flex-col md:min-h-[600px] max-h-[800px] max-w-xl z-30 mx-12 py-12 justify-center">
+              <h1 className="text-4xl tracking-wider font-bold mb-2">
+                {movie.title}
+              </h1>
+              <p className="opacity-60 mb-12">
+                {movie.release_date.slice(0, 4)} | {timeConvert(movie.runtime)}
+              </p>
+              <p className="italic opacity-90 tracking-widest mb-4">
+                {movie.tagline}
+              </p>
+              <p className="text-lg">{movie.overview}</p>
+              <div className="my-2 text-gray-400 flex gap-5 text-sm">
+                {movie.genres &&
+                  movie.genres.map((genre) => (
+                    <p key={genre.id}>{genre.name} </p>
+                  ))}
               </div>
             </div>
           </div>
-        </section> */}
 
-        {/* <div className="">
-          <div className="">
-            {movie.production_companies &&
-              movie.production_companies.map((c) => (
-                <div key={c.id} className="w-16">
-                  {c.logo_path && <img src={`${BASE_URL}/${c.logo_path}`} />}
-                </div>
-              ))}
-          </div>
-          <div className=" ">
-            <h1 className="">{movie.title}</h1>
-            <p className="">{movie.tagline}</p>
-            <p className="">{movie.overview}</p>
-            <div className="mt-1 text-gray-400 flex gap-5 text-sm">
-              {movie.genres &&
-                movie.genres.map((genre) => (
-                  <p key={genre.id}>{genre.name} </p>
-                ))}
+          <div className="md:hidden text-sm">
+            <div className="relative">
+              <Image
+                src={`${BASE_URL}${movie.backdrop_path || movie.poster_path}`}
+                height={500}
+                width={890}
+              />
             </div>
-            {movie.runtime != 0 && (
-              <p className="mt-1">{movie.runtime} minutes</p>
-            )}
-            <div className="mt-1">
-              <p>
-                {movie.vote_average} / 10 ({movie.vote_count} ratings)
+            <div className="mx-4">
+              <h1 className="text-xl tracking-wider font-bold mb-1">
+                {movie.title}
+              </h1>
+              <p className="opacity-60 mb-4">
+                {movie.release_date.slice(0, 4)} | {timeConvert(movie.runtime)}
               </p>
-            </div>
-            <div className="my-2 md:my-10">
-              {movie.imdb_id && (
-                <Link href={`https://www.imdb.com/title/${movie.imdb_id}`}>
-                  <img src="/imdb.png" className="h-8 md:h-12" />
-                </Link>
-              )}
+              <p className="italic opacity-90 tracking-widest mb-1">
+                {movie.tagline}
+              </p>
+              <p className="text-sm">{movie.overview}</p>
+              <div className="my-2 text-gray-400 flex gap-5 text-sm">
+                {movie.genres &&
+                  movie.genres.map((genre) => (
+                    <p key={genre.id}>{genre.name} </p>
+                  ))}
+              </div>
             </div>
           </div>
-        </div> */}
-        {/* <div>
-        <h2>Recommended</h2>
-        <Results data={recommended} />
-      </div> */}
-      </div>
+        </div>
+      </section>
+
+      <section className="mx-4 relative">
+        <div className="md:absolute md:-top-24 md:right-0 md:left-0  bg-gradient-to-l from-richBlack py-2 flex justify-between">
+          <div className="flex ml-9 items-center ">
+            <img className="h-6 " src="/Hulu_Logo.svg" alt="" />
+          </div>
+
+          <button className="md:mx-12 mr-4 uppercase bg-hulu text-richBlack p-2 px-4 text-sm md:text-md rounded-lg font-semibold tracking-wider my-2">
+            watch now
+          </button>
+        </div>
+      </section>
+
+      <section className="m-4">
+        <h1 className="tracking-wider text-2xl md:m-8">Top cast</h1>
+
+        <div className="hidden md:grid md:grid-cols-3 mx-8 gap-4">
+          {actors.map((a) => (
+            <div key={a.id} className="flex items-center gap-4">
+              <Image
+                src={`${BASE_URL}/${a.profile_path}`}
+                className="object-cover rounded-full"
+                height={120}
+                width={120}
+              />
+              <div>
+                <p className="text-xl">{a.name}</p>
+                <p className="text-gray-400">as {a.character}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="md:hidden flex flex-col items-center p-3 overflow-scroll scrollbar-hide">
+          <div className="flex m-auto gap-4">
+            {actors.map((a) => (
+              <div key={a.name} className="w-28">
+                <Image
+                  src={`${BASE_URL}/${a.profile_path}`}
+                  className="object-cover rounded-full"
+                  height={120}
+                  width={120}
+                />
+                <div>
+                  <p className="text-center">{a.name}</p>
+                  <p className="text-center text-sm text-gray-400">
+                    {a.character}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-4"></section>
     </div>
   );
 }

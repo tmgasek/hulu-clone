@@ -22,11 +22,13 @@ body::before {
   height: 100vh;
   /* //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
     // background: #D3D3D3; */
-  background: rgb(4, 4, 5);
-  background: linear-gradient(
-    100deg,
-    rgba(4, 4, 5, 1) 23%,
-    rgba(24, 57, 73, 1) 89%
+  background-image: linear-gradient(
+    to right bottom,
+    #040405,
+    #12141a,
+    #182029,
+    #1a2c39,
+    #183949
   );
   position: fixed;
   left: 0;
@@ -37,22 +39,16 @@ body::before {
   background-size: cover;
 }
 
-/* need to sort out gradients mismatching */
-
-.clear-left {
-  clear: left;
-}
-
 .hero-image::after {
   display: block;
   position: absolute;
-  background: rgb(4, 4, 5);
-  background: linear-gradient(
-    90deg,
-    rgba(4, 4, 5, 0.9) 19%,
-    rgba(10, 20, 26, 0.68) 42%,
-    rgba(15, 33, 42, 0.48) 62%,
-    rgba(24, 57, 73, 0.11) 94%
+  background-image: linear-gradient(
+    to right,
+    #040405fb,
+    #12141ae8,
+    #182029af,
+    #1a2c393d,
+    #18394925
   );
   bottom: 0;
   left: 0;

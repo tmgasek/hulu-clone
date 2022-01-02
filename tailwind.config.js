@@ -28,6 +28,7 @@ module.exports = {
 
       colors: {
         hulu: '#1ce783',
+        richBlack: '#040405',
       },
     },
   },

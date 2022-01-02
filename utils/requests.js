@@ -64,7 +64,7 @@ export const getActorDetails = async (id) => {
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`
   );
   const data = await req.json();
-  return data;
+  return data.cast.slice(0, 6);
 };
 
 export const getRecommendedMovies = async (id) => {

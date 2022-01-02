@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <nav className="relative">
-      <div className="flex px-10 sm:px-20 text-lg whitespace-nowrap space-x-8 sm:space-x-14 overflow-x-scroll scrollbar-hide">
+      <div className="flex px-10 sm:px-20 whitespace-nowrap space-x-8 sm:space-x-14 overflow-x-scroll scrollbar-hide">
         {Object.entries(requests).map(([key, { title, url }]) => (
           <h2
             className="last:pr-24 cursor-pointer transition duration-100 transform hover:scale-125 hover:test-white active:text-red-500"
