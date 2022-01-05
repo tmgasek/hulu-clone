@@ -11,7 +11,7 @@ import HeaderItem from './HeaderItem';
 
 function Header() {
   return (
-    <header className="flex flex-col sm:flex-row mt-4 justify-between items-center h-auto">
+    <header className="flex mt-4 justify-between items-center h-auto">
       <div className="flex flex-grow justify-evenly max-w-2xl">
         <HeaderItem title="HOME" Icon={HomeIcon} path="/home" />
         <HeaderItem
@@ -23,9 +23,18 @@ function Header() {
         <HeaderItem title="COLLECTIONS" Icon={CollectionIcon} path="#" />
         <HeaderItem title="SEARCH" Icon={SearchIcon} path="/search" />
         <HeaderItem title="ACCOUNT" Icon={UserIcon} path="/account" />
+        <div className="md:hidden mx-2">
+          <Image
+            className="object-contain"
+            src="/Hulu_Logo.svg"
+            alt=""
+            height={20}
+            width={60}
+          />
+        </div>
       </div>
 
-      <div className="-mt-4">
+      <div className="-mt-3 hidden md:block">
         <Image
           className="object-contain"
           src="/Hulu_Logo.svg"

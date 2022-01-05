@@ -5,20 +5,13 @@ import Results from '../../components/Results';
 import {
   getActorDetails,
   getMovieDetails,
-  getMovieReviews,
   getMovieVideos,
   getRecommendedMovies,
 } from '../../utils/requests';
 import Hero from '../../components/Hero';
 import TopCast from '../../components/TopCast';
 
-export default function MoviePage({
-  movie,
-  actors,
-  recommended,
-  reviews,
-  videos,
-}) {
+export default function MoviePage({ movie, actors, recommended, videos }) {
   return (
     <>
       <Header />
@@ -42,7 +35,7 @@ export async function getServerSideProps(context) {
   const movie = await getMovieDetails(id);
   const actors = await getActorDetails(id);
   const recommended = await getRecommendedMovies(id);
-  const reviews = await getMovieReviews(id);
+
   const videos = await getMovieVideos(id);
 
   if (!movie) {
@@ -56,7 +49,7 @@ export async function getServerSideProps(context) {
       movie,
       actors,
       recommended,
-      reviews,
+
       videos,
     },
   };

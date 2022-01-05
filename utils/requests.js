@@ -64,20 +64,12 @@ export const getActorDetails = async (id) => {
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`
   );
   const data = await req.json();
-  return data.cast.slice(0, 6);
+  return data.cast.slice(0, 12);
 };
 
 export const getRecommendedMovies = async (id) => {
   const req = await fetch(
     `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`
-  );
-  const data = await req.json();
-  return data;
-};
-
-export const getMovieReviews = async (id) => {
-  const req = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}`
   );
   const data = await req.json();
   return data;
