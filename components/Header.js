@@ -34,7 +34,7 @@ function Header() {
         </div>
       </div>
 
-      <div className="-mt-3 hidden md:block">
+      <div className="-mt-3 hidden md:block md:mx-6">
         <Image
           className="object-contain"
           src="/Hulu_Logo.svg"

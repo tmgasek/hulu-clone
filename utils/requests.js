@@ -80,9 +80,23 @@ export const getMovieVideos = async (id) => {
     `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`
   );
   const data = await req.json();
-  // const trailer = data.results.find((v) => v.type === 'Trailer');
-  // return trailer;
-  if (data.results.length >= 2) {
-    return data.results.slice(0, 2);
-  } else return data.results;
+  const trailers = data.results.filter((v) => v.type === 'Trailer');
+
+  if (trailers.length > 2) {
+    return trailers.slice(0, 2);
+  } else return trailers;
 };
+
+export const getTVActorDetails = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data.cast.slice(0, 12);
+};
+
+/*
+TODO:
+merge all the requests
+continue on tv details page
+*/

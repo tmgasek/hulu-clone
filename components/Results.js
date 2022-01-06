@@ -14,13 +14,19 @@ function Results({ data, type }) {
     }
   };
 
+  const getDataArr = () => {
+    if (type == 'recommended') {
+      return data.results.slice(0, 15);
+    } else return data.results;
+  };
+
   if (!data) return <div></div>;
 
   //small bug here with 3xl:flex in results view as recommended.
   return (
     <div>
       <FlipMove className="my-4 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap items-center justify-center">
-        {data.results.map((item) => (
+        {getDataArr().map((item) => (
           <div
             key={item.id}
             //could create a Link tag here if concerned with SEO
