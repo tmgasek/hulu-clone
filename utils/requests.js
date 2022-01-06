@@ -80,5 +80,9 @@ export const getMovieVideos = async (id) => {
     `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`
   );
   const data = await req.json();
-  return data;
+  // const trailer = data.results.find((v) => v.type === 'Trailer');
+  // return trailer;
+  if (data.results.length >= 2) {
+    return data.results.slice(0, 2);
+  } else return data.results;
 };

@@ -11,19 +11,29 @@ import {
 import Hero from '../../components/Hero';
 import TopCast from '../../components/TopCast';
 
+import Videos from '../../components/Videos';
+
 export default function MoviePage({ movie, actors, recommended, videos }) {
   return (
     <>
       <Header />
 
-      <div className="max-w-[1780px] mx-auto">
+      <div className="max-w-[2100px] mx-auto">
         <section>
           <Hero data={movie} type={'movie'} />
         </section>
-        <section className="m-4">
-          <TopCast actors={actors} />
-        </section>
-        <section className="mx-4"></section>
+        <div className="mx-4 md:m-12">
+          <section>
+            <TopCast actors={actors} />
+          </section>
+          <section>
+            <Videos videos={videos} />
+          </section>
+          <section>
+            <h1 className="tracking-wider text-2xl mt-4">Recommended</h1>
+            <Results data={recommended} type={'recommended'} />
+          </section>
+        </div>
       </div>
     </>
   );
@@ -49,7 +59,6 @@ export async function getServerSideProps(context) {
       movie,
       actors,
       recommended,
-
       videos,
     },
   };

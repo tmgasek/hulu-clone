@@ -11,10 +11,10 @@ function timeConvert(n) {
 }
 
 const Hero = ({ data, type }) => {
-  console.log(data);
   const bgClass = `url('${`${BASE_URL}${
     data.backdrop_path || data.poster_path
   }`}')`;
+
   return (
     <div className="max-h-[800px] relative">
       <div
@@ -46,7 +46,7 @@ const Hero = ({ data, type }) => {
           {data.tagline}
         </p>
         <p className="text-sm md:text-lg">{data.overview}</p>
-        <div className="my-2 text-gray-400 flex gap-5 text-sm">
+        <div className="my-2 text-gray-400 flex gap-5 text-sm flex-wrap">
           {data.genres &&
             data.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
         </div>

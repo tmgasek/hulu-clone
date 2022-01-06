@@ -3,7 +3,7 @@ import FlipMove from 'react-flip-move';
 import { useRouter } from 'next/router';
 import Pagination from './Pagination';
 
-function Results({ data }) {
+function Results({ data, type }) {
   const router = useRouter();
 
   const pushBasedOnMediaType = (item) => {
@@ -16,9 +16,10 @@ function Results({ data }) {
 
   if (!data) return <div></div>;
 
+  //small bug here with 3xl:flex in results view as recommended.
   return (
     <div>
-      <FlipMove className="px-5 my-4 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap items-center justify-center">
+      <FlipMove className="my-4 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap items-center justify-center">
         {data.results.map((item) => (
           <div
             key={item.id}
@@ -29,7 +30,7 @@ function Results({ data }) {
           </div>
         ))}
       </FlipMove>
-      <Pagination max={data.total_pages} />
+      {type !== 'recommended' && <Pagination max={data.total_pages} />}
     </div>
   );
 }
