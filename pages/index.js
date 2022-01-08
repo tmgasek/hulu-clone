@@ -1,24 +1,14 @@
-import Head from 'next/head';
-import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import Results from '../components/Results';
 import requests from '../utils/requests';
-import { useRouter } from 'next/router';
+import Layout from '../components/Layout';
 
 export default function Home({ data }) {
   return (
-    <div>
-      <Head>
-        <title>Hulu</title>
-      </Head>
-
-      {/* Header */}
-      <Header />
-      {/* Navbar */}
+    <Layout>
       <Navbar />
-      {/* Results */}
       <Results data={data} />
-    </div>
+    </Layout>
   );
 }
 

@@ -1,8 +1,8 @@
-import Header from '../../components/Header';
 import { useState } from 'react';
 import Results from '../../components/Results';
 import { useRouter } from 'next/router';
 import { searchQuery } from '../../utils/requests';
+import Layout from '../../components/Layout';
 
 export default function SearchPage({ data }) {
   const [term, setTerm] = useState('');
@@ -15,8 +15,7 @@ export default function SearchPage({ data }) {
   };
 
   return (
-    <div>
-      <Header />
+    <Layout title={`Search ${router.query.term || ''}`}>
       <div className="">
         <form onSubmit={handleSubmit} className="flex justify-center gap-3 ">
           <input
@@ -34,7 +33,7 @@ export default function SearchPage({ data }) {
         </form>
       </div>
       <Results data={data} />
-    </div>
+    </Layout>
   );
 }
 

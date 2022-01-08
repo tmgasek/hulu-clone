@@ -1,6 +1,5 @@
 import Image from 'next/image';
-
-const BASE_URL = 'https://image.tmdb.org/t/p/original';
+import { BASE_URL } from '../utils';
 
 const TopCast = ({ actors }) => {
   const getActorPictureSrc = (url) => {
@@ -14,7 +13,7 @@ const TopCast = ({ actors }) => {
   return (
     <>
       <div className="flex justify-between items-center">
-        <h1 className="tracking-wider text-2xl mt-4">Top cast</h1>
+        <h1 className="tracking-wider text-2xl">Top cast</h1>
       </div>
 
       <div className="grid grid-cols-2 text-xs md:text-base md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 my-4 ">

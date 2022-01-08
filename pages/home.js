@@ -1,19 +1,19 @@
-import Head from "next/head";
-import Link from "next/link";
-import { useState } from "react";
-import BiggestEvents from "../components/home/BiggestEvents";
-import BreakingNews from "../components/home/BreakingNews";
-import LiveSports from "../components/home/LiveSports";
+import Head from 'next/head';
+import Link from 'next/link';
+import { useState } from 'react';
+import BiggestEvents from '../components/home/BiggestEvents';
+import BreakingNews from '../components/home/BreakingNews';
+import LiveSports from '../components/home/LiveSports';
 
-import Footer from "../components/home/Footer";
-import PlanListA from "../components/home/PlanListA";
-import PlanListB from "../components/home/PlanListB";
-import PlanHeadingA from "../components/home/PlanHeadingA";
-import PlanHeadingB from "../components/home/PlanHeadingB";
-import Addons from "../components/home/Addons";
+import Footer from '../components/home/Footer';
+import PlanListA from '../components/home/PlanListA';
+import PlanListB from '../components/home/PlanListB';
+import PlanHeadingA from '../components/home/PlanHeadingA';
+import PlanHeadingB from '../components/home/PlanHeadingB';
+import Addons from '../components/home/Addons';
 
 function HomePage() {
-  const [currCover, setCurrCover] = useState("sports");
+  const [currCover, setCurrCover] = useState('sports');
   const [bundleActive, setBundleActive] = useState(false);
 
   //this works style={{ backgroundImage: 'url("/header.jpg")' }}
@@ -54,7 +54,7 @@ function HomePage() {
               Get endless entertainment, live sports, and the shows and movies
               you love.
             </div>
-            <Link href={"/"}>
+            <Link href={'/'}>
               <button className="uppercase bg-white text-black p-4 px-10 rounded-lg font-semibold text-xl tracking-wider md:mt-4">
                 ENTER SITE
               </button>
@@ -160,9 +160,9 @@ function HomePage() {
           ${currCover === 'events' ? 'bg-eventsSm md:bg-eventsMd' : ''} */}
 
       <section className="relative">
-        {currCover === "sports" && <LiveSports setCurrCover={setCurrCover} />}
-        {currCover === "news" && <BreakingNews setCurrCover={setCurrCover} />}
-        {currCover === "events" && (
+        {currCover === 'sports' && <LiveSports setCurrCover={setCurrCover} />}
+        {currCover === 'news' && <BreakingNews setCurrCover={setCurrCover} />}
+        {currCover === 'events' && (
           <BiggestEvents setCurrCover={setCurrCover} />
         )}
       </section>

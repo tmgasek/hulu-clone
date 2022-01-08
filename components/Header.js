@@ -22,7 +22,7 @@ function Header() {
         <HeaderItem title="VERIFIED" Icon={BadgeCheckIcon} path="#" />
         <HeaderItem title="COLLECTIONS" Icon={CollectionIcon} path="#" />
         <HeaderItem title="SEARCH" Icon={SearchIcon} path="/search" />
-        <HeaderItem title="ACCOUNT" Icon={UserIcon} path="/account" />
+        <HeaderItem title="ACCOUNT" Icon={UserIcon} path="/#" />
         <div className="md:hidden mx-2">
           <Image
             className="object-contain"

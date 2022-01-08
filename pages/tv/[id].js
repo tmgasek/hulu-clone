@@ -1,30 +1,32 @@
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import Header from '../../components/Header';
-import { ArrowLeftIcon } from '@heroicons/react/outline';
 import Hero from '../../components/Hero';
-import { getTVActorDetails } from '../../utils/requests';
+import { getTVActorDetails, getRecommendedTV } from '../../utils/requests';
 import TopCast from '../../components/TopCast';
+import Seasons from '../../components/Seasons';
+import Results from '../../components/Results';
+import Layout from '../../components/Layout';
 
-const BASE_URL = 'https://image.tmdb.org/t/p/original';
-
-export default function TvPage({ tv, actors }) {
-  const router = useRouter();
-
-  console.log(tv);
-  console.log(actors);
-
+export default function TvPage({ tv, actors, recommended }) {
   return (
-    <>
-      <Header />
+    <Layout title={tv.name}>
       <div className="max-w-[2100px] mx-auto">
-        <Hero data={tv} type="tv" />
-
         <section>
-          <TopCast actors={actors} />
+          <Hero data={tv} type="tv" />
         </section>
+
+        <div className="m-4 md:m-12 ">
+          <section className="my-12">
+            <TopCast actors={actors} />
+          </section>
+          <section className="my-12">
+            <Seasons tv={tv} />
+          </section>
+          <section className="my-12">
+            <h1 className="tracking-wider text-2xl mt-4">Recommended</h1>
+            <Results data={recommended} type={'recommended'} />
+          </section>
+        </div>
       </div>
-    </>
+    </Layout>
   );
 }
 
@@ -44,13 +46,13 @@ export async function getServerSideProps(context) {
   );
 
   const tv = await req.json();
-
   const actors = await getTVActorDetails(id);
-
+  const recommended = await getRecommendedTV(id);
   return {
     props: {
       tv,
       actors,
+      recommended,
     },
   };
 }

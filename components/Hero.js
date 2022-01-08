@@ -1,6 +1,5 @@
 import Image from 'next/image';
-
-const BASE_URL = 'https://image.tmdb.org/t/p/original';
+import { BASE_URL } from '../utils';
 
 function timeConvert(n) {
   const hours = n / 60;
@@ -18,7 +17,7 @@ const Hero = ({ data, type }) => {
   return (
     <div className="max-h-[800px] relative">
       <div
-        className="bg-cover bg-right-top hero-image hidden md:flex md:min-h-[600px] max-h-[800px] relative "
+        className="bg-cover bg-right-top hero-image hidden md:flex md:min-h-[600px] relative "
         style={{
           backgroundImage: bgClass,
         }}
@@ -32,7 +31,7 @@ const Hero = ({ data, type }) => {
         />
       </div>
 
-      <div className="md:absolute md:top-12 text-white md:max-w-xl md:mx-12 md:py-12 mx-4">
+      <div className="md:absolute md:top-12 text-white md:max-w-2xl md:mx-12 mx-4">
         <h1 className="text-xl md:text-4xl tracking-wider font-bold mb-2">
           {data.title || data.name}
         </h1>
@@ -50,6 +49,13 @@ const Hero = ({ data, type }) => {
           {data.genres &&
             data.genres.map((genre) => <p key={genre.id}>{genre.name} </p>)}
         </div>
+        {type === 'tv' && (
+          <div className="py-2 text-gray-400 text-sm">
+            <p>Seasons: {data.number_of_seasons}</p>
+            <p>Episodes: {data.number_of_episodes}</p>
+            <p>Episode runtime: {data.episode_run_time} minutes</p>
+          </div>
+        )}
       </div>
 
       <div className="mx-4 relative">

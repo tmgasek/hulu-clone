@@ -95,6 +95,14 @@ export const getTVActorDetails = async (id) => {
   return data.cast.slice(0, 12);
 };
 
+export const getRecommendedTV = async (id) => {
+  const req = await fetch(
+    `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${API_KEY}`
+  );
+  const data = await req.json();
+  return data;
+};
+
 /*
 TODO:
 merge all the requests
