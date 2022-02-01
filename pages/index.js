@@ -1,7 +1,5 @@
-import Navbar from '../components/Navbar';
-import Results from '../components/Results';
 import requests from '../utils/requests';
-import Layout from '../components/Layout';
+import { Layout, Results, Navbar } from '../components';
 
 export default function Home({ data }) {
   return (

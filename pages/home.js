@@ -1,34 +1,21 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import BiggestEvents from '../components/home/BiggestEvents';
-import BreakingNews from '../components/home/BreakingNews';
-import LiveSports from '../components/home/LiveSports';
-
-import Footer from '../components/home/Footer';
-import PlanListA from '../components/home/PlanListA';
-import PlanListB from '../components/home/PlanListB';
-import PlanHeadingA from '../components/home/PlanHeadingA';
-import PlanHeadingB from '../components/home/PlanHeadingB';
-import Addons from '../components/home/Addons';
+import {
+  Addons,
+  BiggestEvents,
+  BreakingNews,
+  Footer,
+  LiveSports,
+  PlanHeadingA,
+  PlanHeadingB,
+  PlanListA,
+  PlanListB,
+} from '../components/home';
 
 function HomePage() {
   const [currCover, setCurrCover] = useState('sports');
   const [bundleActive, setBundleActive] = useState(false);
-
-  //this works style={{ backgroundImage: 'url("/header.jpg")' }}
-
-  // const switchCovers = (selection) => {
-  //   if (selection === 'sports') {
-  //     setCurrCover('/live-sports.jpg');
-  //   }
-  //   if (selection === 'news') {
-  //     setCurrCover('/breaking-news.jpg');
-  //   }
-  //   if (selection === 'events') {
-  //     setCurrCover('/biggest-events.jpg');
-  //   }
-  // };
 
   return (
     <div className="text-white">
@@ -55,12 +42,14 @@ function HomePage() {
               you love.
             </div>
             <Link href={'/'}>
-              <button className="uppercase bg-white text-black p-4 px-10 rounded-lg font-semibold text-xl tracking-wider md:mt-4">
+              <button className="uppercase bg-white text-black p-4 px-10 rounded-lg font-semibold text-xl tracking-wider md:mt-4 animate-bounce hover:bg-hulu">
                 ENTER SITE
               </button>
             </Link>
 
-            <p className="text-sm p-6">See details and bundle terms</p>
+            <a href="#bundles" className="text-sm m-6 cursor-pointer">
+              See details and bundle terms
+            </a>
           </div>
           <div className="p-4  bg-black/50 flex flex-col gap-6 md:gap-0 md:flex-row justify-evenly items-center">
             <div className="w-60 ">
@@ -148,16 +137,11 @@ function HomePage() {
             Price will increase to $69.99/month on 12/21/2021. Regional
             restrictions, blackouts and additional terms apply.
           </p>
-          <p className="underline">VIEW CHANNELS IN YOUR AREA →</p>
+          <p className="underline cursor-pointer">
+            VIEW CHANNELS IN YOUR AREA →
+          </p>
         </div>
       </section>
-
-      {/* DYNAMIC OPTIONS BUT IT LAGS ON SWITCH FIRST TIME.  */}
-
-      {/* className={`h-[800px] ${    
-            currCover === 'sports' ? 'bg-sportsSm md:bg-sportsMd' : ''
-          }${currCover === 'news' ? 'bg-newsSm md:bg-newsMd' : ''}
-          ${currCover === 'events' ? 'bg-eventsSm md:bg-eventsMd' : ''} */}
 
       <section className="relative">
         {currCover === 'sports' && <LiveSports setCurrCover={setCurrCover} />}
@@ -167,7 +151,7 @@ function HomePage() {
         )}
       </section>
 
-      <section className="bg-white h-auto py-10 text-[#292C33]">
+      <section className="bg-white h-auto py-10 text-[#292C33]" id="bundles">
         <div className="xl:max-w-6xl lg:max-w-4xl px-2 m-auto">
           <div className="flex flex-col justify-center items-center py-10">
             <h2 className="text-3xl lg:text-7xl font-black">
@@ -181,7 +165,7 @@ function HomePage() {
             </p>
           </div>
           <div className="flex lg:flex-row flex-col border-t-2 mb-4 sticky top-0 bg-white z-50 ">
-            <div className="lg:flex-grow flex justify-between items-center lg:block  ">
+            <div className="lg:flex-grow flex justify-between items-center lg:block">
               <div>
                 <img src="/bundles.svg" />
                 <h2 className="text-2xl font-black my-1">Bundle & Save</h2>

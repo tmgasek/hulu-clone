@@ -1,9 +1,5 @@
-import Hero from '../../components/Hero';
 import { getTVActorDetails, getRecommendedTV } from '../../utils/requests';
-import TopCast from '../../components/TopCast';
-import Seasons from '../../components/Seasons';
-import Results from '../../components/Results';
-import Layout from '../../components/Layout';
+import { Hero, TopCast, Seasons, Results, Layout } from '../../components';
 
 export default function TvPage({ tv, actors, recommended }) {
   return (

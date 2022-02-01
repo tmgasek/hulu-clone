@@ -1,5 +1,3 @@
-import Biggest_Events from './BiggestEvents';
-
 function LiveSports({ setCurrCover }) {
   return (
     <div

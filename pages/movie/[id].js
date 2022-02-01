@@ -1,14 +1,10 @@
-import Results from '../../components/Results';
 import {
   getActorDetails,
   getMovieDetails,
   getMovieVideos,
   getRecommendedMovies,
 } from '../../utils/requests';
-import Hero from '../../components/Hero';
-import TopCast from '../../components/TopCast';
-import Videos from '../../components/Videos';
-import Layout from '../../components/Layout';
+import { Layout, Videos, TopCast, Hero, Results } from '../../components';
 
 export default function MoviePage({ movie, actors, recommended, videos }) {
   console.log(movie.title);

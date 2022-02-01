@@ -6,7 +6,10 @@ function BreakingNews({ setCurrCover }) {
       <div className="relative z-10 flex flex-col max-w-md p-5 md:justify-center md:mx-40">
         <div className="flex gap-5 mt-4 md:mt-48 mb-14 font-bold text-center">
           <div>
-            <p onClick={() => setCurrCover('sports')} className="text-gray-400">
+            <p
+              onClick={() => setCurrCover('sports')}
+              className="text-gray-400 cursor-pointer"
+            >
               LIVE SPORTS
             </p>
           </div>
@@ -15,7 +18,10 @@ function BreakingNews({ setCurrCover }) {
             <div className="border-2 mt-2"></div>
           </div>
           <div>
-            <p onClick={() => setCurrCover('events')} className="text-gray-400">
+            <p
+              onClick={() => setCurrCover('events')}
+              className="text-gray-400 cursor-pointer"
+            >
               BIGGEST EVENTS
             </p>
           </div>

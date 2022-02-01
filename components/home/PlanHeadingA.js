@@ -1,7 +1,7 @@
 function PlanHeadingA() {
   return (
-    <div className="flex text-center items-end gap-1 lg:gap-4 ">
-      <div className="w-full">
+    <div className="flex text-center items-end gap-1 xl:gap-3 ">
+      <div className="w-full ">
         <p className="bg-gray-500 rounded-full text-white p-1 my-1 text-sm font-bold">
           MOST POPULAR
         </p>
