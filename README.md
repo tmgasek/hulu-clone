@@ -1,12 +1,15 @@
 # Hulu Clone
 
-This is my own partial clone of Hulu.com which allows the user to look up and view details about movies and TV shows.
-I am using the The Movie Database as the API for querying all the data. (https://www.themoviedb.org/)
+My aim for this project was to create a website where the user can view and search for movies and TV shows. The data is provided by The Movie Database with version 3 of their database being used.
 
-Technologies used:
-- React.js
+The website has 2 parts:
+- The welcoming Home page, which is a direct visual clone of Hulu's official Welcome site which I used as a visual reference and made my own rendition of it using Tailwind CSS.
+- The media viewing part of the site which queries TheMovieDB. I followed a guide to create a functioning skeleton of the app which queries movies. Then I expanded the app with a search function, TV Shows and detail views for single movies and shows.
+
+### Technologies used
+- React
 - Next.js
-- TailwindCSS
+- Tailwind CSS
 
 You can find the site live [HERE](https://hulu-clone-rho-ten.vercel.app/)
 
