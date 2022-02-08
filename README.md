@@ -11,7 +11,8 @@ The website has 2 parts:
 - Next.js
 - Tailwind CSS
 
-You can find the site live [HERE](https://hulu-clone-rho-ten.vercel.app/)
+You can find the site live [here](https://hulu-clone-rho-ten.vercel.app/)
+More information on this project's development process on my [blog](https://www.tomaszgasek.com/posts/hulu-clone)
 
 To run this site locally, clone this repo and use:
 - `npm install`
