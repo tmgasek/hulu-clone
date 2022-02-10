@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   BadgeCheckIcon,
   CollectionIcon,
@@ -6,7 +7,6 @@ import {
   SearchIcon,
   UserIcon,
 } from '@heroicons/react/outline';
-import Image from 'next/image';
 import HeaderItem from './HeaderItem';
 
 function Header() {

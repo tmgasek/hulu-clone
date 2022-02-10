@@ -13,7 +13,7 @@ import {
   PlanListB,
 } from '../components/home';
 
-function HomePage() {
+export default function HomePage() {
   const [currCover, setCurrCover] = useState('sports');
   const [bundleActive, setBundleActive] = useState(false);
 
@@ -205,5 +205,3 @@ function HomePage() {
     </div>
   );
 }
-
-export default HomePage;

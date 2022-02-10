@@ -1,8 +1,6 @@
-import Thumbnail from './Thumbnail';
 import FlipMove from 'react-flip-move';
 import { useRouter } from 'next/router';
-import Pagination from './Pagination';
-
+import { Pagination, Thumbnail } from './index';
 function Results({ data, type }) {
   const router = useRouter();
 

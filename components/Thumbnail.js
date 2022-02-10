@@ -1,7 +1,6 @@
+import { forwardRef } from 'react';
 import Image from 'next/image';
 import { ThumbUpIcon } from '@heroicons/react/outline';
-import { forwardRef } from 'react';
-import { useRouter } from 'next/router';
 import { BASE_URL } from '../utils';
 
 const Thumbnail = forwardRef(({ item }, ref) => {
@@ -25,8 +24,8 @@ const Thumbnail = forwardRef(({ item }, ref) => {
         height={1080}
         width={1920}
         src={getImgSrc(item)}
+        alt={'thumbnail'}
       />
-      {/* <Image height={100} width={100} src="/movie-icon-png-2.jpg" /> */}
       <div className="p-2">
         <p className="truncate max-w-md">{item.overview}</p>
         <h2 className="truncate max-w-md mt-1 text-2xl text-white transition-all duration-75 ease-in group-hover:font-bold">

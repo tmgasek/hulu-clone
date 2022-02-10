@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 function Pagination({ max }) {
   const router = useRouter();
 
-  //TODO: fix the 1 unnecessary checking ig !page
+  //TODO: fix the 1 unnecessary checking if !page
 
   const currPage = parseInt(router.query.page || 1);
   const currGenre = router.query.genre;
