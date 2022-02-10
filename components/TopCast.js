@@ -25,6 +25,7 @@ const TopCast = ({ actors }) => {
                 className="object-cover rounded-full"
                 height={120}
                 width={120}
+                quality={50}
               />
             </div>
             <div className="text-center">

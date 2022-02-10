@@ -21,10 +21,12 @@ const Thumbnail = forwardRef(({ item }, ref) => {
     >
       <Image
         layout="responsive"
-        height={1080}
-        width={1920}
+        height={720}
+        width={1280}
         src={getImgSrc(item)}
         alt={'thumbnail'}
+        sizes="50vw"
+        quality={10}
       />
       <div className="p-2">
         <p className="truncate max-w-md">{item.overview}</p>

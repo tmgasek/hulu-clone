@@ -28,6 +28,7 @@ const Hero = ({ data, type }) => {
           src={`${BASE_URL}${data.backdrop_path || data.poster_path}`}
           height={500}
           width={890}
+          quality={20}
         />
       </div>
 
