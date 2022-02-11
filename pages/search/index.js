@@ -21,7 +21,7 @@ export default function SearchPage({ data }) {
           className="flex flex-col px-4 sm:flex-row justify-center gap-3"
         >
           <input
-            className="p-2 rounded-3xl text-black"
+            className="px-3 rounded-2xl text-black"
             type="text"
             value={term}
             onChange={(e) => setTerm(e.target.value)}
